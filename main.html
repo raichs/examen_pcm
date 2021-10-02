@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html ng-app="examenApp">
+
+<head>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Examen PCM</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="css/nprogress.css" rel="stylesheet">
+        <!-- Animate.css -->
+        <link href="css/animate.min.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="css/green.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <!-- JQVMap -->
+        <link href="css/jqvmap.min.css" rel="stylesheet" />
+        <!-- bootstrap-daterangepicker -->
+        <link href="css/daterangepicker.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/snackbar.min.css" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet">
+    </head>
+</head>
+
+<body class="nav-md" ng-controller="mainCtrl">
+    <div ng-hide="!layout.loading" class="centrocentro" style="position: fixed; z-index: 11050; width: 100%; min-height: 100%; 
+        background-color: rgba(255, 255, 255, 0.88); padding: 20px" id="loading">
+        <img src="images/gifCargaAjax.gif" style="width: 35px;" />
+        <h4 style="margin-left: 10px;">Cargando, Espere Por Favor ...</h4>
+    </div>
+    <div id="preload" class="centrocentro" style="position: fixed; z-index: 11050; width: 100%; min-height: 100%; 
+        background-color: rgba(255, 255, 255, 0.88); padding: 20px;display: none;" id="loading">
+        <img src="images/gifCargaAjax.gif" style="width: 35px;" />
+        <h4 style="margin-left: 10px;">Cargando, Espere Por Favor ...</h4>
+    </div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="#/" class="site_title"><i class="fa fa-cutlery"></i> <span style="font-size: 15px;">Sistema de Restaurante </span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <!--<div class="logo">
+                        <img src="images/logo.jpg" class="img-responsive" style="width: 100%;" alt="">
+                    </div>
+                    <hr>-->
+                    <!-- menu profile quick info -->
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="#/">
+                                        <i class="fa fa-money"></i> Vender
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+                        <a data-toggle="tooltip" id="btn-fullscreen" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" ng-click="cerrarSesion();">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li ng-click="cerrarSesion();"><a><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <!--<a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>-->
+                  </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                        <span class="image"><img ng-src="images/usuarios/{{imagenUsuario}}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                        <span class="image"><img ng-src="images/usuarios/{{imagenUsuario}}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                        <span class="image"><img ng-src="images/usuarios/{{imagenUsuario}}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                        <span class="image"><img ng-src="images/usuarios/{{imagenUsuario}}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <div class="right_col" role="main" ng-view>
+            </div>
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Sistema de Restaurante
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="components/angular/angular.min.js"></script>
+    <script src="components/angular-cookie/angular-cookies.min.js"></script>
+    <script src="components/angular-route/angular-route.min.js"></script>
+    <script src="components/Pagination/dirPagination.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="js/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="js/Chart.min.js"></script>
+    <script src="js/chartjs-plugin-datalabels.min.js"></script>
+    <!-- gauge.js -->
+    <script src="js/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="js/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="js/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="js/skycons.js"></script>
+    <!-- Flot -->
+    <script src="js/jquery.flot.js"></script>
+    <script src="js/jquery.flot.pie.js"></script>
+    <script src="js/jquery.flot.time.js"></script>
+    <script src="js/jquery.flot.stack.js"></script>
+    <script src="js/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="js/jquery.flot.orderBars.js"></script>
+    <script src="js/jquery.flot.spline.min.js"></script>
+    <script src="js/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="js/date.js"></script>
+    <!-- JQVMap -->
+    <script src="js/jquery.vmap.js"></script>
+    <script src="js/jquery.vmap.world.js"></script>
+    <script src="js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/snackbar.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.9.0.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <!-- ANGULAS JS -->
+    <script src="scripts/app.js"></script>
+    <!-- SERVICIOS -->
+    <script src="scripts/services/loginService.js"></script>
+    <script src="scripts/services/permisosService.js"></script>
+    <!-- CONTROLADORES-->
+    <script src="scripts/controllers/mainCtrl.js"></script>
+    <script src="scripts/controllers/home/homeCtrl.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="examenApp">
+
+<head>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Examen PCM</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="css/nprogress.css" rel="stylesheet">
+        <!-- Animate.css -->
+        <link href="css/animate.min.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="css/green.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <!-- JQVMap -->
+        <link href="css/jqvmap.min.css" rel="stylesheet" />
+        <!-- bootstrap-daterangepicker -->
+        <link href="css/daterangepicker.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/snackbar.min.css" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet">
+    </head>
+</head>
+
+<body ng-controller="loginCtrl">
+    <div ng-hide="!cargaData" class="centrocentro" id="loading">
+        <img src="images/gifCargaAjaxMain.gif" style="width: 35px;" />
+        <h4 style="margin-left: 10px;">Cargando, Espere Por Favor ...</h4>
+    </div>
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form>
+                        <h1>Inicio de Sesión</h1>
+                        <div class="logo">
+                            <!--<img src="images/logo.jpg" alt="" class="img-responsive" style="margin: 0 auto;">-->
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" class="form-control" style="text-transform: uppercase;" ng-model="usuario.name" ng-keypress="enter($event,usuario)" placeholder="Usuario" required />
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" ng-model="usuario.password" ng-keypress="enter($event,usuario)" placeholder="CONTRASEÑA" required />
+                        </div>
+                        <div>
+                            <a class="btn btn-default submit" ng-click="login(usuario);">Iniciar Sesión</a>
+                        </div>
+                        <div class="msj-alert" style="margin-top: 10px;" ng-show="msjError != ''">
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>-->
+                                {{msjError}}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<script src="components/angular/angular.min.js"></script>
+<script src="components/angular-cookie/angular-cookies.min.js"></script>
+<script src="components/angular-route/angular-route.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="js/Chart.min.js"></script>
+<!-- gauge.js -->
+<script src="js/gauge.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="js/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js"></script>
+<!-- Skycons -->
+<script src="js/skycons.js"></script>
+<!-- Flot -->
+<script src="js/jquery.flot.js"></script>
+<script src="js/jquery.flot.pie.js"></script>
+<script src="js/jquery.flot.time.js"></script>
+<script src="js/jquery.flot.stack.js"></script>
+<script src="js/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="js/jquery.flot.orderBars.js"></script>
+<script src="js/jquery.flot.spline.min.js"></script>
+<script src="js/curvedLines.js"></script>
+<!-- DateJS -->
+<script src="js/date.js"></script>
+<!-- JQVMap -->
+<script src="js/jquery.vmap.js"></script>
+<script src="js/jquery.vmap.world.js"></script>
+<script src="js/jquery.vmap.sampledata.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/snackbar.min.js"></script>
+<!-- PNotify -->
+<!--<script src="vendors/pnotify/dist/pnotify.js"></script>
+<script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>-->
+<script src="scripts/controllers/loginCtrl.js"></script>
+<script src="scripts/services/loginService.js"></script>
+<script src="scripts/services/permisosService.js"></script>
+
+</html>

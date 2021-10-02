@@ -1,0 +1,93 @@
+.centrocentro {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 2000;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.snackbar {
+    background-color: #323232;
+    color: rgba(255, 255, 255, .84);
+    font-size: 14px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12), 0 1px 6px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12), 0 1px 6px 0 rgba(0, 0, 0, .12);
+    height: 0;
+    -webkit-transition: -webkit-transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, padding 0s linear .2s, height 0s linear .2s;
+    -o-transition: -o-transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, padding 0s linear .2s, height 0s linear .2s;
+    transition: transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, padding 0s linear .2s, height 0s linear .2s;
+    -webkit-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    -o-transform: translateY(200%);
+    transform: translateY(200%)
+}
+
+.snackbar.snackbar-opened {
+    padding: 14px 15px;
+    margin-bottom: 20px;
+    height: auto;
+    -webkit-transition: -webkit-transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, height 0s linear .2s;
+    -o-transition: -o-transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, height 0s linear .2s;
+    transition: transform .2s ease-in-out, opacity .2s ease-in, height 0s linear .2s, height 0s linear .2s;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none
+}
+
+.snackbar.toast {
+    border-radius: 200px
+}
+
+h1{
+    font-size: 30px !important;
+}
+
+hr{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.fila_al_dia{
+    background-color: #2ecc71 !important;
+    color: white;
+}
+
+.fila_morosa{
+    background-color: #f1c40f !important;
+    color: white;
+}
+
+.fila_deudosa{
+    background-color: red !important;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .columna_autocompletado{
+        padding: 0px 0 39px 0;
+        margin-top: 15px;
+    }
+}
